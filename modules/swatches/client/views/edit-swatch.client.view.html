@@ -1,0 +1,58 @@
+<section data-ng-controller="SwatchesController" data-ng-init="findOne()">
+  <div class="page-header">
+    <h1>Edit Swatch</h1>
+  </div>
+  <div layout='row'>
+    <md-content layout-padding flex=40>
+      <form class="form-horizontal" data-ng-submit="update()" novalidate>
+        <div layout layout-sm='row'>
+          <md-input-container flex>
+            <label>Title</label>
+            <input ng-model="swatch.title" required>
+          </md-input-container>
+        </div>
+        <div layout layout-sm='row'>
+          <md-input-container flex>
+            <label>Description</label>
+            <input ng-model="swatch.description">
+          </md-input-container>
+        </div>
+        <div layout class='create-slider-container'>
+          <div flex=15 layout layout-align="center center">
+            <span class="md-body-1">Importance</span>
+          </div>
+          <md-slider flex md-discrete ng-model="swatch.importance" title='importance' value='importance' step="1" min="0" max="100" aria-label="importance" class='create-slider'></md-slider>
+        </div>
+        <div layout class='create-slider-container'>
+          <div flex=15 layout layout-align="center center">
+            <span class="md-body-1">Urgency</span>
+          </div>
+          <md-slider flex md-discrete ng-model="swatch.urgency" title='urgency' value='urgency' step="1" min="0" max="100" aria-label="urgency" class='create-slider'></md-slider>
+        </div>
+        <fieldset>
+          <div class="form-group">
+            <md-button class="md-raised" type="submit">Update</md-button>
+          </div>
+          <div data-ng-show="error" class="text-danger">
+            <strong data-ng-bind="error"></strong>
+          </div>
+        </fieldset>
+      </form>
+    </md-content>
+    <div flex=60>
+      <md-content class='md-padding swatch-list-container' ng-if='show === "all" || show == swatch.completed' ng-click='$parent.$parent.$parent.focus = $parent.$parent.swatch'>
+        <a class='view-link'>
+          <md-card class='swatch-list'>
+            <div class="swatch-list-color" style='background-color: {{swatch.color}};'></div>
+            <md-card-content class='swatch-list-content'>
+              <h2 class='md-title swatch-list-title'>{{swatch.title}}</h2>
+              <p class='swatch-list-description'>
+                {{swatch.description}}
+              </p>
+            </md-card-content>
+          </md-card>
+        </a>
+      </md-content>
+    </div>
+  </div>
+</section>

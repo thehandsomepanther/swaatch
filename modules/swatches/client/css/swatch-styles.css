@@ -1,0 +1,107 @@
+* {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+}
+
+.swatch-container {
+  width: 400px;
+  display: block;
+  margin: 0 auto;
+}
+
+.swatch-color{
+  height: 350px;
+  width: 100%;
+}
+
+.swatch-title {
+  text-transform: uppercase;
+  margin-top: 0;
+  font-weight: 700;
+}
+
+.swatch-content {
+  height: 94px;
+}
+
+.swatch-list-container {
+  width: 400px;
+  display: block;
+  margin: 0 auto;
+}
+
+.swatch-list-color{
+  height: 350px;
+  width: 100%;
+}
+
+.swatch-list-title {
+  text-transform: uppercase;
+  margin-top: 0;
+  font-weight: 700;
+}
+
+.swatch-list-content {
+  height: 94px;
+}
+
+.grid-container {
+  display: block;
+  margin: 0 auto;
+}
+
+.swatch-grid-container {
+  width: 165px;
+  display: inline-block;
+  margin: 0 auto;
+  transition: all .2s linear;
+}
+
+.swatch-grid-container:hover {
+  position: relative;
+  top: -6px;
+}
+
+.swatch-grid-color{
+  height: 100px;
+}
+
+.swatch-grid-content {
+  witdh: 100%;
+}
+
+.swatch-list-title,
+.swatch-list-description,
+.swatch-grid-title,
+.swatch-grid-description {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.swatch-grid-title {
+  margin: 0 0 0 0;
+  position: relative;
+  top: -6px;
+  left: -6px;
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 700;
+  width: 100%;
+}
+
+.swatch-grid-description {
+  font-size: 8px;
+  position: relative;
+  left: -6px;
+  margin-bottom: 0;
+}
+
+.view-link {
+  color: black;
+}
+
+.view-link:hover {
+  text-decoration: none;
+  color: black;
+}

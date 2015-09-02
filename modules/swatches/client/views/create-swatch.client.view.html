@@ -1,0 +1,57 @@
+<section ng-controller="SwatchesController">
+  <div layout='row'>
+    <div flex=25>
+      <form ng-submit="create()" novalidate>
+        <fieldset>
+          <md-input-container flex required>
+            <label>Title</label>
+            <input ng-model="title">
+          </md-input-container>
+          <md-input-container flex>
+            <label>Description</label>
+            <input ng-model="description">
+          </md-input-container>
+          <div layout='row' class='create-slider-container'>
+            <div class='create-slider-group'>
+              <h2>{{importance}}</h2>
+              <h3 class="md-body-1">Importance</h3>
+              <md-slider flex ng-model="importance" title='importance' value='importance' step="1" min="0" max="100" aria-label="importance" class='create-slider'></md-slider>
+            </div>
+            <div class='create-slider-group'>
+              <h2>{{urgency}}</h2>
+              <h3 class="md-body-1">Urgency</h3>
+              <md-slider flex ng-model="urgency" title='urgency' value='urgency' step="1" min="0" max="100" aria-label="urgency" class='create-slider'></md-slider>
+            </div>
+          </div>
+          <a class='advanced-settings'><h3>Advanced settings</h3></a>
+          <div id='advanced'>
+            <div class="due-date">
+            </div>
+          </div>
+          <div class='create-button'>
+            <md-button type="submit">Create Swatch</md-button>
+          </div>
+          <div data-ng-show="error" class="text-danger">
+            <strong data-ng-bind="error"></strong>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+    <div flex=50 class='form-container'>
+      <md-content class='md-padding swatch-list-container'>
+        <a class='view-link'>
+          <md-card class='swatch-list'>
+            <div class="swatch-list-color" style="background-color:
+                  hsla({{(importance - 100) / 100 * 250}}, 100%, {{urgency / 2}}%, 1);"></div>
+            <md-card-content class='swatch-list-content'>
+              <h2 class='md-title swatch-list-title'>{{title}}</h2>
+              <p class='swatch-list-description'>
+                {{description}}
+              </p>
+            </md-card-content>
+          </md-card>
+        </a>
+      </md-content>
+    </div>
+  </div>
+</section>

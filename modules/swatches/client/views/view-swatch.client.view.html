@@ -1,0 +1,25 @@
+<section data-ng-controller="SwatchesController" data-ng-init="findOne()">
+	<div class="page-header">
+		<h1 data-ng-bind="swatch.title"></h1>
+		<h1 data-ng-bind="swatch.urgency"></h1>
+		<h1 data-ng-bind="swatch.importance"></h1>
+		<h1 data-ng-bind="swatch.priority"></h1>
+		<h1 data-ng-bind="swatch.color"></h1>
+	</div>
+	<div class="pull-right" data-ng-show="authentication.user._id == swatch.user._id">
+		<a class="btn btn-primary" href="/#!/swatches/{{swatch._id}}/edit">
+			<i class="glyphicon glyphicon-edit"></i>
+		</a>
+		<a class="btn btn-primary" data-ng-click="remove();">
+			<i class="glyphicon glyphicon-trash"></i>
+		</a>
+	</div>
+	<small>
+		<em class="text-muted">
+			Posted on
+			<span data-ng-bind="swatch.created | date:'mediumDate'"></span>
+			by
+			<span data-ng-bind="swatch.user.displayName"></span>
+		</em>
+	</small>
+</section>

@@ -1,0 +1,52 @@
+.create-slider-container {
+  display: block;
+  width: 102%;
+  margin: 0 auto;
+}
+
+
+.create-slider-group {
+  display: inline-block;
+  width: 49%;
+}
+
+
+.create-slider-group h2 {
+  font-size: 3em;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 4px;
+}
+
+
+.create-slider-group h3 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 0;
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #616161;
+}
+
+
+.advanced-settings, .advanced-settings h3 {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #616161;
+  text-decoration: none;
+}
+
+.advanced-settings:hover {
+  text-decoration: none;
+}
+
+.create-button {
+  text-align: center;
+}
+
+
+.text-danger {
+  text-align: center;
+}
