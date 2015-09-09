@@ -118,5 +118,10 @@ angular.module('swatches')
           swatchId: $stateParams.swatchId
         });
       };
+
+      // Go to a route
+      $scope.go = function(path) {
+        $location.hash(path);
+      };
     }
   ]);

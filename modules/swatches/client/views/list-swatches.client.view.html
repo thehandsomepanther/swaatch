@@ -32,12 +32,23 @@
       </div>
 
       <div class="animated bounceInUp">
-        <div data-ng-repeat="swatch in swatches | orderBy: sort | filter: searchText" ng-if='view === "list"' >
+        <div data-ng-repeat="swatch in swatches | orderBy: sort | filter: searchText" ng-if='view === "list"'>
           <!-- data-ng-show="authentication.user._id == swatch.user._id" -->
-          <md-content class='md-padding swatch-list-container' ng-if='show === "all" || show == swatch.completed' ng-click='$parent.$parent.$parent.focus = $parent.$parent.swatch'>
+          <md-content class='md-padding swatch-list-container' ng-if='show === "all" || show == swatch.completed' ng-mouseover='$parent.$parent.$parent.focus = $parent.$parent.swatch'>
             <a class='view-link'>
               <md-card class='swatch-list'>
-                <div class="swatch-list-color" style='background-color: {{swatch.color}};'></div>
+                <div class="swatch-list-color" style='background-color: {{swatch.color}};'>
+                  <!-- ng-href="/#!/swatches/{{focus._id}}/edit" -->
+                  <md-button class="md-fab md-mini md-primary" ng-click='go("/#!/swatches/{{focus._id}}/edit")'>
+                    <md-icon ><i class='material-icons'>edit</i></md-icon>
+                  </md-button>
+                  <md-button class="md-fab md-mini md-primary">
+                    <md-icon><i class='material-icons'>remove_red_eye</i></md-icon>
+                  </md-button>
+                  <md-button class="md-fab md-mini md-primary">
+                    <md-icon><i class='material-icons'>done</i></md-icon>
+                  </md-button>
+                </div>
                 <md-card-content class='swatch-list-content'>
                   <h2 class='md-title swatch-list-title'>{{swatch.title}}</h2>
                   <p class='swatch-list-description'>
@@ -59,8 +70,8 @@
               <md-card class='swatch-grid'>
                 <div class="swatch-grid-color" style='background-color: {{swatch.color}};'></div>
                 <md-card-content class='swatch-grid-content'>
-                    <h2 class="swatch-grid-title">{{swatch.title}}</h2>
-                    <p class="swatch-grid-description">{{swatch.description}}</p>
+                  <h2 class="swatch-grid-title">{{swatch.title}}</h2>
+                  <p class="swatch-grid-description">{{swatch.description}}</p>
                 </md-card-content>
               </md-card>
             </a>
@@ -69,7 +80,7 @@
       </div>
 
     </div>
-    <div flex=25>
+    <div flex=30>
       <md-content class='md-padding focus-list-container'>
         <md-card class="focus-list animated fadeInRight" ng-show='focus !== null'>
           <div class="focus-header" style='background-color: {{focus.color}};'>
@@ -121,7 +132,6 @@
                 {{focus.color}}
               </p>
             </div>
-            <i class='material-icons'><a href="/#!/swatches/{{focus._id}}/edit">edit</a></i>
           </md-card-content>
         </md-card>
       </md-content>

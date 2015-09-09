@@ -1,15 +1,21 @@
-.nav-list-container,
-.focus-list-container {
-  position: fixed;
-}
-
 .nav-list,
 .focus-list {
-  position: relative;
+  overflow: hidden;
 }
 
 .list-search {
   background-color: white;
+}
+
+.list-container {
+  max-height: 85vh;
+  overflow-y: scroll;
+}
+
+.focus-list-container {
+  width: 100%;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
 }
 
 .focus-header {

@@ -51,13 +51,17 @@ a:hover .header-profile-image {
 
 .header {
   position: fixed;
+  background-color: #EEEEEE;
 }
 
 
+.header .nav, .navbar-brand {
+  color: #616161 !important;
+}
+
 .header .nav {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 12px;
   text-transform: uppercase;
+  color: #616161;
 }
 
 
