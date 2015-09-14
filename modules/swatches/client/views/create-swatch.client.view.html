@@ -1,6 +1,6 @@
 <section ng-controller="SwatchesController">
   <div layout='row'>
-    <div flex=25>
+    <div flex=25 class='create-fields'>
       <form ng-submit="create()" novalidate>
         <fieldset>
           <md-input-container flex required>
@@ -23,10 +23,17 @@
               <md-slider flex ng-model="urgency" title='urgency' value='urgency' step="1" min="0" max="100" aria-label="urgency" class='create-slider'></md-slider>
             </div>
           </div>
-          <a class='advanced-settings'><h3>Advanced settings</h3></a>
-          <div id='advanced'>
-            <div class="due-date">
-            </div>
+          <div class='advanced-settings' ng-init='var showAdvanced = false;' ng-click='showAdvanced = !showAdvanced;'>
+            <h3>Advanced settings </h3>
+            <i class='material-icons' ng-if='!showAdvanced'>arrow_drop_down</i>
+            <i class='material-icons' ng-if='showAdvanced'>arrow_drop_up</i>
+          </div>
+          <div id='advanced' ng-show='showAdvanced'>
+            <md-switch ng-model="completed" aria-label="Completed" ng-init='completed = false;'>
+              <span ng-if='!completed'>Not </span>Completed
+            </md-switch>
+            <md-datepicker ng-model="due_date" md-placeholder="Due Date"></md-datepicker>
+            <h1>{{due_date}}</h1>
           </div>
           <div class='create-button'>
             <md-button type="submit">Create Swatch</md-button>

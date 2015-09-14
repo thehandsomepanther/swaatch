@@ -1,3 +1,9 @@
+.create-fields {
+  height: 85vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
 .create-slider-container {
   display: block;
   width: 102%;
@@ -29,17 +35,24 @@
   color: #616161;
 }
 
+.advanced-settings {
+  position: relative;
+}
 
-.advanced-settings, .advanced-settings h3 {
+.advanced-settings h3 {
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
   color: #616161;
   text-decoration: none;
+  display: inline;
 }
 
-.advanced-settings:hover {
-  text-decoration: none;
+.advanced-settings i{
+  font-size: 24px;
+  line-height: 12px;
+  position: absolute;
+  top: 3px;
 }
 
 .create-button {

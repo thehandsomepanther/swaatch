@@ -36,6 +36,11 @@ angular.module('swatches')
         return 'hsla(' + parseHue(importance) + ', 100%, ' + parseBright(urgency) + '%, 1)';
       }
 
+      function calcDelta(created, due, start) {
+        var msDay = 60 * 60 * 24 * 1000;
+        return (100 - start) / Math.ceil((due.getTime() - created) / msDay);
+      }
+
       // Create new Swatch
       $scope.create = function() {
         // Create new Swatch object
@@ -46,15 +51,18 @@ angular.module('swatches')
           urgency: this.urgency,
           priority: calcPriority(this.urgency, this.importance),
           color: calcColor(this.urgency, this.importance),
-          completed: this.completed
+          completed: this.completed,
+          due_date: this.due_date,
+          importance_delta: calcDelta(Date.now(), this.due_date, this.importance),
+          urgency_delta: calcDelta(Date.now(), this.due_date, this.urgency)
         });
 
         // Redirect after save
         swatch.$save(function(response) {
-          $location.path('swatches/' + response._id);
-
+          // $location.path('swatches/' + response._id);
+          $location.path('swatches');
           // Clear form fields
-          $scope.name = '';
+          $scope.title = '';
         }, function(errorResponse) {
           $scope.error = errorResponse.data.message;
         });

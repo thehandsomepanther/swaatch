@@ -47,7 +47,7 @@ var SwatchSchema = new Schema({
   },
   created: {
     type: Date,
-    default: Date.now
+    default: Date.now()
   },
   due_date: {
     type: Date
