@@ -5,6 +5,7 @@
 		<h1 data-ng-bind="swatch.importance"></h1>
 		<h1 data-ng-bind="swatch.priority"></h1>
 		<h1 data-ng-bind="swatch.color"></h1>
+		<h1 data-ng-bind="swatch.completed"></h1>
 	</div>
 	<div class="pull-right" data-ng-show="authentication.user._id == swatch.user._id">
 		<a class="btn btn-primary" href="/#!/swatches/{{swatch._id}}/edit">

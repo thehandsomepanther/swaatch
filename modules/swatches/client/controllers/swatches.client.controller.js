@@ -2,8 +2,8 @@
 
 // Swatches controller
 angular.module('swatches')
-  .controller('SwatchesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Swatches',
-    function($scope, $stateParams, $location, Authentication, Swatches) {
+  .controller('SwatchesController', ['$scope', '$stateParams', '$location', '$interval', 'Authentication', 'Swatches',
+    function($scope, $stateParams, $location, $interval, Authentication, Swatches) {
       $scope.authentication = Authentication;
 
       $scope.importance = 50;
@@ -79,13 +79,40 @@ angular.module('swatches')
 
       // Update existing Swatch
       $scope.update = function() {
+        console.log($scope.swatch);
         var swatch = $scope.swatch;
-        swatch.priority = Math.sqrt(Math.pow($scope.swatch.importance, 2) + Math.pow($scope.swatch.urgency, 2));
+        swatch.priority = calcPriority($scope.swatch.urgency, $scope.swatch.importance);
+        swatch.color = calcColor($scope.swatch.urgency, $scope.swatch.importance);
 
         swatch.$update(function() {
-          $location.path('swatches/' + swatch._id);
+          // $location.path('swatches/' + swatch._id);
+          $location.path('swatches');
         }, function(errorResponse) {
           $scope.error = errorResponse.data.message;
+        });
+      };
+
+      $scope.setCompleted = function(id, status) {
+        $scope.swatch = Swatches.get({
+          swatchId: id
+        }, function() {
+          var swatch = $scope.swatch;
+          swatch.completed = status;
+
+          swatch.$update(function(){
+
+          }, function(errorResponse) {
+            $scope.error = errorResponse.data.message;
+          });
+        });
+      };
+
+      $scope.listRemove = function(id) {
+        $scope.swatch = Swatches.get({
+          swatchId: id
+        }, function() {
+          var swatch = $scope.swatch;
+          $scope.remove(swatch);
         });
       };
 
@@ -106,17 +133,17 @@ angular.module('swatches')
         $scope.swatches = Swatches.query();
       };
 
-      $scope.hasSwatch = function() {
-        $scope.has_swatches = Swatches.get({
-          userId: $stateParams.userId
-        });
-      };
-
       // Find existing Swatch
-      $scope.findOne = function() {
-        $scope.swatch = Swatches.get({
-          swatchId: $stateParams.swatchId
-        });
+      $scope.findOne = function(id) {
+        if (id) {
+          $scope.swatch = Swatches.get({
+            swatchId: id
+          });
+        } else {
+          $scope.swatch = Swatches.get({
+            swatchId: $stateParams.swatchId
+          });
+        }
       };
     }
   ]);

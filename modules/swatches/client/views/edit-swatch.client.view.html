@@ -26,14 +26,20 @@
               <md-slider flex ng-model="swatch.urgency" title='urgency' value='swatch.urgency' step="1" min="0" max="100" aria-label="urgency" class='create-slider'></md-slider>
             </div>
           </div>
-          <a class='advanced-settings'><h3>Advanced settings</h3></a>
+          <a class='advanced-settings'>
+            <h3>Advanced settings</h3>
+          </a>
           <div id='advanced'>
+            <md-switch ng-model="swatch.completed" aria-label="Completed">
+              {{swatch.completed}}
+            </md-switch>
             <div class="due-date">
+              <md-datepicker ng-model="swatch.due_date" md-placeholder="Due Date"></md-datepicker>
             </div>
           </div>
-          <div class='create-button'>
+          <div class='submit-button'>
             <md-button class="md-raised" type='submit'>Update Swatch</md-button>
-            <md-button class="md-raised md-warn"><a href="/swatches"></a>Cancel</md-button>
+            <md-button class="md-raised md-warn"><a ng-href="/swatches">Cancel</a></md-button>
           </div>
           <div data-ng-show="error" class="text-danger">
             <strong data-ng-bind="error"></strong>
@@ -42,7 +48,7 @@
       </form>
     </md-content>
     <div flex=50>
-      <md-content class='md-padding swatch-list-container' ng-if='show === "all" || show == swatch.completed' ng-click='$parent.$parent.$parent.focus = $parent.$parent.swatch'>
+      <md-content class='md-padding swatch-list-container'>
         <a class='view-link'>
           <md-card class='swatch-list'>
             <div class="swatch-list-color" style="background-color:

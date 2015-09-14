@@ -37,6 +37,19 @@
   line-height: 350px;
 }
 
+.swatch-list-buttons{
+  opacity: 0;
+  transition: all .2s ease;
+}
+
+.swatch-list-buttons .md-fab {
+  background-color: #E0E0E0 !important;
+}
+
+.swatch-list-buttons:hover{
+  opacity: .8;
+}
+
 .swatch-list-title {
   text-transform: uppercase;
   margin-top: 0;
