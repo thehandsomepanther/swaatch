@@ -32,10 +32,10 @@
             <i class='material-icons' ng-if='showAdvanced'>arrow_drop_up</i>
           </div>
           <div id='advanced' ng-show='showAdvanced'>
-            <md-switch ng-model="completed" aria-label="Completed" ng-init='completed = false;'>
-              <span ng-if='!completed'>Not </span>Completed
+            <md-switch ng-model="swatch.completed" aria-label="Completed">
+              <span ng-if='!swatch.completed'>Not </span>Completed
             </md-switch>
-            <md-datepicker ng-model="due_date" md-placeholder="Due Date"></md-datepicker>
+            <md-datepicker ng-model="due_date" md-placeholder='Due Date'></md-datepicker>
           </div>
           <div class='submit-button'>
             <md-button class="md-raised" type='submit'>Update Swatch</md-button>

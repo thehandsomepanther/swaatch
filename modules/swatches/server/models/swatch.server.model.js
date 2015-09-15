@@ -46,11 +46,11 @@ var SwatchSchema = new Schema({
     default: false
   },
   created: {
-    type: Date,
+    type: Number,
     default: Date.now()
   },
   due_date: {
-    type: Date
+    type: Number
   },
   importance_delta: {
     type: Number,

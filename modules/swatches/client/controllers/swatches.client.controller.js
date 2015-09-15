@@ -36,13 +36,32 @@ angular.module('swatches')
         return 'hsla(' + parseHue(importance) + ', 100%, ' + parseBright(urgency) + '%, 1)';
       }
 
-      function calcDelta(created, due, start) {
+      // calculates delta for urgency and importance based on starting value and number of days until due
+      // start does not call getTime() because it should always be Date.now()
+      function calcDelta(start, due, initial) {
         var msDay = 60 * 60 * 24 * 1000;
-        return (100 - start) / Math.ceil((due.getTime() - created) / msDay);
+
+        console.log(due);
+        console.log(typeof due);
+
+        return (100 - initial) / Math.ceil((due - start) / msDay);
       }
 
       // Create new Swatch
       $scope.create = function() {
+
+        var due, i_delta, u_delta;
+
+        if (this.due_date !== undefined) {
+          due = this.due_date.getTime();
+          i_delta = calcDelta(Date.now(), this.due_date.getTime(), this.importance);
+          u_delta = calcDelta(Date.now(), this.due_date.getTime(), this.urgency);
+        } else {
+          due = null;
+          i_delta = 0;
+          u_delta = 0;
+        }
+
         // Create new Swatch object
         var swatch = new Swatches({
           title: this.title,
@@ -52,9 +71,9 @@ angular.module('swatches')
           priority: calcPriority(this.urgency, this.importance),
           color: calcColor(this.urgency, this.importance),
           completed: this.completed,
-          due_date: this.due_date,
-          importance_delta: calcDelta(Date.now(), this.due_date, this.importance),
-          urgency_delta: calcDelta(Date.now(), this.due_date, this.urgency)
+          due_date: due,
+          importance_delta: i_delta,
+          urgency_delta: u_delta
         });
 
         // Redirect after save
@@ -87,10 +106,16 @@ angular.module('swatches')
 
       // Update existing Swatch
       $scope.update = function() {
-        console.log($scope.swatch);
         var swatch = $scope.swatch;
         swatch.priority = calcPriority($scope.swatch.urgency, $scope.swatch.importance);
         swatch.color = calcColor($scope.swatch.urgency, $scope.swatch.importance);
+
+        if (this.due_date) {
+          swatch.due_date = this.due_date.getTime();
+
+          swatch.importance_delta = calcDelta(Date.now(), swatch.due_date, swatch.importance);
+          swatch.urgency_delta = calcDelta(Date.now(), swatch.due_date, swatch.urgency);
+        }
 
         swatch.$update(function() {
           // $location.path('swatches/' + swatch._id);
