@@ -32,7 +32,7 @@
             <md-switch ng-model="completed" aria-label="Completed" ng-init='completed = false;'>
               <span ng-if='!completed'>Not </span>Completed
             </md-switch>
-            <md-datepicker ng-model="due_date" md-placeholder="Due Date"  ng-click='logType(due_date)'></md-datepicker>
+            <md-datepicker ng-model="due_date" md-placeholder="Due Date" md-min-date="minDate" ng-click='logType(due_date)'></md-datepicker>
           </div>
           <div class='create-button'>
             <md-button class='md-raised' type="submit">Create Swatch</md-button>

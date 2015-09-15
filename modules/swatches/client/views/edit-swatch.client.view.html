@@ -35,7 +35,7 @@
             <md-switch ng-model="swatch.completed" aria-label="Completed">
               <span ng-if='!swatch.completed'>Not </span>Completed
             </md-switch>
-            <md-datepicker ng-model="due_date" md-placeholder='Due Date'></md-datepicker>
+            <md-datepicker ng-model="due_date" md-min-date="minDate" md-placeholder='Due Date'></md-datepicker>
           </div>
           <div class='submit-button'>
             <md-button class="md-raised" type='submit'>Update Swatch</md-button>

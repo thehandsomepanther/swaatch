@@ -4,6 +4,7 @@
 angular.module('swatches')
   .controller('SwatchesController', ['$scope', '$stateParams', '$location', '$interval', 'Authentication', 'Swatches',
     function($scope, $stateParams, $location, $interval, Authentication, Swatches) {
+      $scope.minDate = new Date();
       $scope.authentication = Authentication;
 
       $scope.importance = 50;
