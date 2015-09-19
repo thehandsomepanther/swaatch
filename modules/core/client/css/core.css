@@ -49,25 +49,23 @@ a:hover .header-profile-image {
 }
 
 
-.header {
-  position: fixed;
-  background-color: #EEEEEE;
+.header .md-toolbar-tools{
+  background-color: rgba(255, 255, 255, 1);
 }
 
 
 .header .nav, .navbar-brand {
-  color: #616161 !important;
+  margin-top: -6px;
+  color: #000 !important;
+  font-weight: 700;
+  font-size: 18px;
+  border-top: 8px solid black;
+  transition: all .5s ease;
 }
 
 .header .nav {
   text-transform: uppercase;
   color: #616161;
-}
-
-
-.header-spacer {
-  width: 100vw;
-  height: 64px;
 }
 
 .home-wrapper {
@@ -85,15 +83,19 @@ a:hover .header-profile-image {
 
 .home-header h1 {
   font-size: 6em;
-  font-weight: 300;
+  font-weight: 700;
+  letter-spacing: -4.5px;
+  line-height: .8em;
 	padding-top: 15%;
 }
 
 
 .home-header p {
+  padding-top: .5em;
   font-size: 2em;
-  font-weight: 400;
-	color: #424242;
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1em;
 }
 
 .home-swatch > p {

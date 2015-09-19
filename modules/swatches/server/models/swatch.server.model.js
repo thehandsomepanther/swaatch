@@ -60,6 +60,16 @@ var SwatchSchema = new Schema({
     type: Number,
     default: 0
   },
+  comments: [{
+    body: {
+      type: String,
+      required: 'Comment cannot be blank'
+    },
+    created: {
+      type: Number,
+      default: Date.now()
+    }
+  }],
   user: {
     type: Schema.ObjectId,
     ref: 'User'

@@ -129,6 +129,11 @@
               <p>
                 {{focus.created | date : MMMddyy}}
               </p>
+              <h4>Due</h4>
+              <p>
+                <span ng-if='focus.due_date'>{{focus.due_date | date : MMMddyy}}</span>
+                <span ng-if='!focus.due_date'>-</span>
+              </p>
               <h4>Completed</h4>
               <p>
                 {{focus.completed}}
