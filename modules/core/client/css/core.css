@@ -64,7 +64,7 @@ a:hover .header-profile-image {
 }
 
 .header .nav {
-  text-transform: uppercase;
+  text-transform: lowercase;
   color: #616161;
 }
 
@@ -83,7 +83,7 @@ a:hover .header-profile-image {
 
 .home-header h1 {
   font-size: 6em;
-  font-weight: 700;
+  font-weight: bold;
   letter-spacing: -4.5px;
   line-height: .8em;
 	padding-top: 15%;
