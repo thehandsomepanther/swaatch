@@ -26,13 +26,13 @@
     </div>
 
     <div class="list-container" flex=50>
-      
+
       <div class="alert alert-warning text-center" data-ng-hide="has_swatches">
         No Swatches yet, why don't you <a href="/#!/swatches/create">create one</a>?
       </div>
 
       <div class="animated bounceInUp">
-        <div data-ng-repeat="swatch in swatches | orderBy: sort | filter: searchText" ng-if='view === "list"' data-ng-show="authentication.user._id == swatch.user._id" >
+        <div data-ng-repeat="swatch in swatches | orderBy: sort | filter: searchText" ng-if='view === "swatch"' data-ng-show="authentication.user._id == swatch.user._id">
           <!-- data-ng-show="authentication.user._id == swatch.user._id" -->
           <md-content class='md-padding swatch-list-container' ng-if='show === "all" || show == swatch.completed' ng-mouseover='$parent.$parent.$parent.focus = $parent.$parent.swatch'>
             <md-card class='swatch-list'>
@@ -83,6 +83,12 @@
             </a>
           </md-content>
         </span>
+
+        <div data-ng-repeat="swatch in swatches | orderBy: sort | filter: searchText" ng-if='view === "list"' data-ng-show="authentication.user._id == swatch.user._id">
+          <md-card>
+            <md-card-content></md-card-content>
+          </md-card>
+        </div>
       </div>
 
     </div>
@@ -157,8 +163,8 @@
     </md-fab-trigger>
     <md-fab-actions>
       <div>
-        <md-button aria-label="Large" class="md-fab md-raised md-mini" ng-click='view = "list"'>
-          <md-tooltip md-direction="right">List</md-tooltip>
+        <md-button aria-label="Large" class="md-fab md-raised md-mini" ng-click='view = "swatch"'>
+          <md-tooltip md-direction="right">Swatch</md-tooltip>
           <md-icon><i class='material-icons'>view_day</i></md-icon>
         </md-button>
       </div>
@@ -166,6 +172,12 @@
         <md-button aria-label="Large" class="md-fab md-raised md-mini" ng-click='view = "grid"'>
           <md-tooltip md-direction="right">Grid</md-tooltip>
           <md-icon><i class='material-icons'>view_comfy</i></md-icon>
+        </md-button>
+      </div>
+      <div>
+        <md-button aria-label='Large' class="md-fab md-raised md-mini" ng-click='view = "list"'>
+          <md-tooltip md-direction='right'>List</md-tooltip>
+          <md-icon><i class='material-icons'>list</i></md-icon>
         </md-button>
       </div>
 
