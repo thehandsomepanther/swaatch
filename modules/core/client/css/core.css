@@ -27,6 +27,9 @@
   border-color: #78fa89;
 }
 
+.sign-header {
+  font-weight: bold;
+}
 
 .header-profile-image {
   width: 28px;
