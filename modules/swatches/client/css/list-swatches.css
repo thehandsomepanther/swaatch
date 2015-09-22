@@ -7,7 +7,7 @@
   background-color: white;
 }
 
-.list-container {
+.view-container {
   max-height: 85vh;
   overflow-y: scroll;
 }

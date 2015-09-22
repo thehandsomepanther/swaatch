@@ -25,19 +25,19 @@
       </div>
     </div>
 
-    <div class="list-container" flex=50>
+    <div class="view-container" flex=50>
 
       <div class="alert alert-warning text-center" data-ng-hide="has_swatches">
         No Swatches yet, why don't you <a href="/#!/swatches/create">create one</a>?
       </div>
 
       <div class="animated bounceInUp">
-        <div data-ng-repeat="swatch in swatches | orderBy: sort | filter: searchText" ng-if='view === "swatch"' data-ng-show="authentication.user._id == swatch.user._id">
+        <div data-ng-repeat="swatch in swatches | orderBy: sort | filter: searchText" ng-if='view === "full"' data-ng-show="authentication.user._id == swatch.user._id">
           <!-- data-ng-show="authentication.user._id == swatch.user._id" -->
-          <md-content class='md-padding swatch-list-container' ng-if='show === "all" || show == swatch.completed' ng-mouseover='$parent.$parent.$parent.focus = $parent.$parent.swatch'>
-            <md-card class='swatch-list'>
-              <div class="swatch-list-color" style='background-color: {{swatch.color}};'>
-                <div class="swatch-list-buttons">
+          <md-content class='md-padding swatch-full-container' ng-if='show === "all" || show == swatch.completed' ng-mouseover='$parent.$parent.$parent.focus = $parent.$parent.swatch'>
+            <md-card class='swatch-full'>
+              <div class="swatch-full-color" style='background-color: {{swatch.color}};'>
+                <div class="swatch-full-buttons">
                   <md-button class="md-fab md-mini md-primary" ng-href='/swatches/{{$parent.swatch._id}}/edit'>
                     <md-tooltip md-direction="top">Edit</md-tooltip>
                     <md-icon><i class='material-icons' style='color: {{$parent.swatch.color}};'>edit</i></md-icon>
@@ -56,9 +56,9 @@
                   </md-button>
                 </div>
               </div>
-              <md-card-content class='swatch-list-content'>
-                <h2 class='md-title swatch-list-title'>{{swatch.title}}</h2>
-                <p class='swatch-list-description'>
+              <md-card-content class='swatch-full-content'>
+                <h2 class='md-title swatch-full-title'>{{swatch.title}}</h2>
+                <p class='swatch-full-description'>
                   {{swatch.description}}
                 </p>
               </md-card-content>
@@ -84,9 +84,21 @@
           </md-content>
         </span>
 
-        <div data-ng-repeat="swatch in swatches | orderBy: sort | filter: searchText" ng-if='view === "list"' data-ng-show="authentication.user._id == swatch.user._id">
-          <md-card>
-            <md-card-content></md-card-content>
+        <div data-ng-repeat="swatch in swatches | orderBy: sort | filter: searchText" ng-if='view === "list"'>
+          <!-- data-ng-show="authentication.user._id == swatch.user._id" -->
+          <md-card ng-if='show === "all" || show == swatch.completed' ng-mouseover='$parent.$parent.$parent.focus = $parent.$parent.swatch' class='swatch-list'>
+            <div class="swatch-list-color" style='background-color: {{swatch.color}};'></div>
+            <md-card-content class='swatch-list-content'>
+              <h5 class='swatch-list-title'>
+                <md-button class="md-icon-button" ng-click='$parent.swatch.completed = true; setCompleted($parent.swatch._id, true);' ng-if='!$parent.swatch.completed'>
+                  <md-icon><i class='material-icons'>done</i></md-icon>
+                </md-button>
+                  <md-button class="md-icon-button" ng-click='$parent.swatch.user._id = 0; listRemove($parent.swatch._id); $parent.$parent.$parent.$parent.focus = null' ng-if='$parent.swatch.completed'>
+                    <md-icon><i class='material-icons'>delete</i></md-icon>
+                  </md-button>
+                {{swatch.title}}
+              </h5>
+            </md-card-content>
           </md-card>
         </div>
       </div>
@@ -163,7 +175,7 @@
     </md-fab-trigger>
     <md-fab-actions>
       <div>
-        <md-button aria-label="Large" class="md-fab md-raised md-mini" ng-click='view = "swatch"'>
+        <md-button aria-label="Large" class="md-fab md-raised md-mini" ng-click='view = "full"'>
           <md-tooltip md-direction="right">Swatch</md-tooltip>
           <md-icon><i class='material-icons'>view_day</i></md-icon>
         </md-button>

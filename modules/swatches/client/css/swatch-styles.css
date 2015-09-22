@@ -24,39 +24,39 @@
   height: 94px;
 }
 
-.swatch-list-container {
+.swatch-full-container {
   width: 400px;
   display: block;
   margin: 0 auto;
 }
 
-.swatch-list-color{
+.swatch-full-color{
   height: 350px;
   width: 100%;
   text-align: center;
   line-height: 350px;
 }
 
-.swatch-list-buttons{
+.swatch-full-buttons{
   opacity: 0;
   transition: all .2s ease;
 }
 
-.swatch-list-buttons .md-fab {
+.swatch-full-buttons .md-fab {
   background-color: #E0E0E0 !important;
 }
 
-.swatch-list-buttons:hover{
+.swatch-full-buttons:hover{
   opacity: .8;
 }
 
-.swatch-list-title {
+.swatch-full-title {
   text-transform: uppercase;
   margin-top: 0;
   font-weight: 700;
 }
 
-.swatch-list-content {
+.swatch-full-content {
   height: 94px;
 }
 
@@ -85,8 +85,8 @@
   witdh: 100%;
 }
 
-.swatch-list-title,
-.swatch-list-description,
+.swatch-full-title,
+.swatch-full-description,
 .swatch-grid-title,
 .swatch-grid-description {
   white-space: nowrap;
@@ -119,4 +119,23 @@
 .view-link:hover {
   text-decoration: none;
   color: black;
+}
+
+.swatch-list-color{
+  height: 20px;
+}
+
+.swatch-list-content {
+  padding: 0 0 0 0;
+}
+
+.swatch-list-title {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0 0 0 0;
+  font-size: 16px;
+}
+
+.swatch-list-title md-icon i{
+  color: red;
 }
