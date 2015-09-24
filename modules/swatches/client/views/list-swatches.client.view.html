@@ -33,7 +33,6 @@
 
       <div class="animated bounceInUp">
         <div data-ng-repeat="swatch in swatches | orderBy: sort | filter: searchText" ng-if='view === "full"' data-ng-show="authentication.user._id == swatch.user._id">
-          <!-- data-ng-show="authentication.user._id == swatch.user._id" -->
           <md-content class='md-padding swatch-full-container' ng-if='show === "all" || show == swatch.completed' ng-mouseover='$parent.$parent.$parent.focus = $parent.$parent.swatch'>
             <md-card class='swatch-full'>
               <div class="swatch-full-color" style='background-color: {{swatch.color}};'>
@@ -66,8 +65,7 @@
           </md-content>
         </div>
 
-        <span data-ng-repeat="swatch in swatches | orderBy: sort | filter: searchText" ng-if='view === "grid"'>
-          <!-- data-ng-show="authentication.user._id == swatch.user._id" -->
+        <span data-ng-repeat="swatch in swatches | orderBy: sort | filter: searchText" ng-if='view === "grid"' data-ng-show="authentication.user._id == swatch.user._id">
           <md-content class='md-padding swatch-grid-container' ng-if='show === "all" || show == swatch.completed' ng-mouseover='$parent.$parent.$parent.focus = $parent.$parent.swatch'>
             <a class='view-link'>
               <!--
@@ -77,14 +75,15 @@
                 <div class="swatch-grid-color" style='background-color: {{swatch.color}};'></div>
                 <md-card-content class='swatch-grid-content'>
                   <h2 class="swatch-grid-title">{{swatch.title}}</h2>
-                  <p class="swatch-grid-description">{{swatch.description}}</p>
+                  <p class='swatch-grid-description' ng-if='!swatch.description'>-</p>
+                  <p class="swatch-grid-description" ng-if='swatch.description'>{{swatch.description}}</p>
                 </md-card-content>
               </md-card>
             </a>
           </md-content>
         </span>
 
-        <div data-ng-repeat="swatch in swatches | orderBy: sort | filter: searchText" ng-if='view === "list"'>
+        <div data-ng-repeat="swatch in swatches | orderBy: sort | filter: searchText" ng-if='view === "list"' data-ng-show="authentication.user._id == swatch.user._id">
           <!-- data-ng-show="authentication.user._id == swatch.user._id" -->
           <md-card ng-if='show === "all" || show == swatch.completed' ng-mouseover='$parent.$parent.$parent.focus = $parent.$parent.swatch' class='swatch-list'>
             <div class="swatch-list-color" style='background-color: {{swatch.color}};'></div>

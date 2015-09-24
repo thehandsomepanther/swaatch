@@ -12,7 +12,7 @@ angular.module('swatches')
 
       $scope.show = 0;
       $scope.sort = '-priority';
-      $scope.view = 'list';
+      $scope.view = 'full';
 
       $scope.focus = null;
       $scope.has_swatches = true;
