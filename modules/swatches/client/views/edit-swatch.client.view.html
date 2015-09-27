@@ -38,7 +38,7 @@
             <md-datepicker ng-model="due_date" md-min-date="minDate" md-placeholder='Due Date'></md-datepicker>
           </div>
           <div class='submit-button'>
-            <md-button class="md-raised" type='submit'>Update Swatch</md-button>
+            <md-button class="md-raised" type='submit'>Save Changes</md-button>
             <md-button class="md-raised md-warn"><a ng-href="/swatches">Cancel</a></md-button>
           </div>
           <div data-ng-show="error" class="text-danger">
@@ -48,25 +48,51 @@
       </form>
     </md-content>
     <div flex=50>
-      <md-content class='md-padding swatch-list-container'>
+      <md-content class='md-padding swatch-full-container'>
         <a class='view-link'>
-          <md-card class='swatch-list'>
-            <div class="swatch-list-color" style="background-color:
+          <md-card class='swatch-full'>
+            <div class="swatch-full-color" style="background-color:
                   hsla({{(swatch.importance - 100) / 100 * 250}}, 100%, {{swatch.urgency / 2}}%, 1);"></div>
-            <md-card-content class='swatch-list-content'>
-              <h2 class='md-title swatch-list-title'>{{swatch.title}}</h2>
-              <p class='swatch-list-description'>
+            <md-card-content class='swatch-full-content'>
+              <h2 class='md-title swatch-full-title'>{{swatch.title}}</h2>
+              <p class='swatch-full-description'>
                 {{swatch.description}}
               </p>
             </md-card-content>
           </md-card>
         </a>
       </md-content>
-    </div>
-    <div flex=25>
       <div class="delete-button">
         <md-button class="md-raised md-warn" ng-click='remove();'>Delete Swatch</md-button>
       </div>
+    </div>
+    <div flex=25 class='swatch-comments'>
+      <div class="swatch-comment-wrapper">
+        <h5>Comments</h5>
+        <md-card class='swatch-comment' ng-repeat='comment in swatch.comments'>
+          <md-card-content>
+            <p class='swatch-comment-date'>{{comment.created | date : MMMddyy}}</p>
+            <p class='swatch-comment-body'>{{comment.body}}</p>
+          </md-card-content>
+          <div class="md-actions" layout='row' layout-align='end center'>
+            <md-button>Edit</md-button>
+            <md-button class='md-warn'>Delete</md-button>
+          </div>
+        </md-card>
+      </div>
+      <md-card class='swatch-comment add-comment'>
+        <md-card-content>
+          <p class='swatch-comment-date'>{{Date.now();}}</p>
+          <md-input-container flex>
+            <label>Comment</label>
+            <textarea columns="1" ng-model='newcomment.body'></textarea>
+          </md-input-container>
+        </md-card-content>
+        <div class="md-actions" layout='row' layout-align='end center'>
+          <md-button ng-click='newcomment.created = Date.now(); swatch.comments.push(newcomment);'>Add</md-button>
+          <md-button class='md-warn'>Delete</md-button>
+        </div>
+      </md-card>
     </div>
   </div>
 </section>

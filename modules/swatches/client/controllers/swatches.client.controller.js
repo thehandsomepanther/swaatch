@@ -63,6 +63,17 @@ angular.module('swatches')
           u_delta = 0;
         }
 
+        var comments = [];
+
+        if (this.comment !== undefined) {
+          comments = [
+            {
+              body: this.comment,
+              created: Date.now()
+            }
+          ];
+        }
+
         // Create new Swatch object
         var swatch = new Swatches({
           title: this.title,
@@ -74,7 +85,8 @@ angular.module('swatches')
           completed: this.completed,
           due_date: due,
           importance_delta: i_delta,
-          urgency_delta: u_delta
+          urgency_delta: u_delta,
+          comments: comments
         });
 
         // Redirect after save
