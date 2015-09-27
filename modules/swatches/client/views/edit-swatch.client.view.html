@@ -51,8 +51,7 @@
       <md-content class='md-padding swatch-full-container'>
         <a class='view-link'>
           <md-card class='swatch-full'>
-            <div class="swatch-full-color" style="background-color:
-                  hsla({{(swatch.importance - 100) / 100 * 250}}, 100%, {{swatch.urgency / 2}}%, 1);"></div>
+            <div class="swatch-full-color" style="background-color:{{calcColor(swatch.urgency, swatch.importance)}}"></div>
             <md-card-content class='swatch-full-content'>
               <h2 class='md-title swatch-full-title'>{{swatch.title}}</h2>
               <p class='swatch-full-description'>
