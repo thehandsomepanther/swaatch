@@ -47,8 +47,7 @@
       <md-content class='md-padding swatch-full-container'>
         <a class='view-link'>
           <md-card class='swatch-full'>
-            <div class="swatch-full-color" style="background-color:
-                  hsla({{(importance - 100) / 100 * 250}}, 100%, {{urgency / 2}}%, 1);"></div>
+            <div class="swatch-full-color" style="background-color: {{calcColor(urgency, importance)}};"></div>
             <md-card-content class='swatch-full-content'>
               <h2 class='md-title swatch-full-title'>{{title}}</h2>
               <p class='swatch-full-description'>
@@ -61,8 +60,15 @@
     </div>
     <div flex='25'>
       <md-input-container flex>
-        <label>Comment</label>
-        <textarea columns="1" ng-model='comment'></textarea>
+        <md-card class='swatch-comment add-comment'>
+          <md-card-content>
+            <md-input-container flex>
+              <label>Comment</label>
+              <textarea columns="1" ng-model='comment'></textarea>
+            </md-input-container>
+          </md-card-content>
+          </div>
+        </md-card>
       </md-input-container>
     </div>
   </div>

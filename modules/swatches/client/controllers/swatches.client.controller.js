@@ -4,6 +4,8 @@
 angular.module('swatches')
   .controller('SwatchesController', ['$scope', '$stateParams', '$location', '$interval', 'Authentication', 'Swatches',
     function($scope, $stateParams, $location, $interval, Authentication, Swatches) {
+      $scope.Math = window.Math;
+
       $scope.minDate = new Date();
       $scope.authentication = Authentication;
 
@@ -17,12 +19,12 @@ angular.module('swatches')
       $scope.focus = null;
       $scope.has_swatches = true;
 
-      // calculates hue from importance
+      // calculates hue from importance (outdated)
       function parseHue(importance) {
         return (importance - 100) / 100 * 250;
       }
 
-      // calculates brightness from urgency
+      // calculates brightness from urgency (outdated)
       function parseBright(urgency) {
         return urgency / 2;
       }
@@ -32,9 +34,24 @@ angular.module('swatches')
         return Math.sqrt(urgency * urgency + importance * importance);
       }
 
+      $scope.calcColor = function(urgency, importance) {
+        var offset = (100 - urgency) / 10;
+        var r = Math.floor(221 - 20 * offset);
+        var g = Math.floor(44 + 6 * offset);
+        var b = Math.floor(28 * offset);
+        var a = importance / 90;
+        return 'rgba(' + r + ', ' + g + ', ' + b + ', ' + a + ')';
+      }
+
       // calculates color from importance and urgency
       function calcColor(urgency, importance) {
-        return 'hsla(' + parseHue(importance) + ', 100%, ' + parseBright(urgency) + '%, 1)';
+        var offset = (100 - urgency) / 10;
+        var r = Math.floor(221 - 20 * offset);
+        var g = Math.floor(44 + 6 * offset);
+        var b = Math.floor(28 * offset);
+        var a = importance / 90;
+        return 'rgba(' + r + ', ' + g + ', ' + b + ', ' + a + ')';
+        // return 'hsla(' + parseHue(importance) + ', 100%, ' + parseBright(urgency) + '%, 1)';
       }
 
       // calculates delta for urgency and importance based on starting value and number of days until due
