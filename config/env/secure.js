@@ -2,7 +2,8 @@
 
 module.exports = {
 	port: 443,
-	db: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://localhost/swaatch',
+	// db: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://localhost/swaatch',
+	db: 'mongodb://root:tHP;jls21815004285348@ds051843.mongolab.com:51843/heroku_4dpz1tzj',
 	assets: {
 		lib: {
 			css: [
