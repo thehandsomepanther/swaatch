@@ -13,9 +13,9 @@
 		"npm": "1.4.x"
 	},
 	"scripts": {
-		"start": "node server.js",
+		"start": "grunt",
 		"test": "grunt test",
-		"postinstall": "grunt"
+		"postinstall": "bower install --config.interactive=false"
 	},
 	"dependencies": {
 		"express": "~4.10.0",
