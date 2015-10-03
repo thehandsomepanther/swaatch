@@ -41,15 +41,15 @@
                     <md-tooltip md-direction="top">Edit</md-tooltip>
                     <md-icon><i class='material-icons' style='color: {{$parent.swatch.color}};'>edit</i></md-icon>
                   </md-button>
-                  <md-button class="md-fab md-mini md-primary" ng-href='/swatches/{{$parent.swatch._id}}'>
+                  <!-- <md-button class="md-fab md-mini md-primary" ng-href='/swatches/{{$parent.swatch._id}}'>
                     <md-tooltip md-direction="top">View</md-tooltip>
                     <md-icon><i class='material-icons' style='color: {{$parent.swatch.color}};'>remove_red_eye</i></md-icon>
-                  </md-button>
-                  <md-button class="md-fab md-mini md-primary" ng-click='$parent.swatch.completed = true; setCompleted($parent.swatch._id, true);' ng-if='!$parent.swatch.completed'>
+                  </md-button> -->
+                  <md-button class="md-fab md-mini md-primary" ng-click='$parent.swatch.completed = true; setCompleted($parent.swatch._id, true);'>
                     <md-tooltip md-direction="top">Mark Completed</md-tooltip>
                     <md-icon><i class='material-icons' style='color: {{$parent.swatch.color}};'>done</i></md-icon>
                   </md-button>
-                  <md-button class="md-fab md-mini md-primary" ng-click='$parent.swatch.user._id = 0; listRemove($parent.swatch._id); $parent.$parent.$parent.$parent.focus = null' ng-if='$parent.swatch.completed'>
+                  <md-button class="md-fab md-mini md-primary" ng-click='$parent.swatch.user._id = 0; listRemove($parent.swatch._id); $parent.$parent.$parent.$parent.focus = null'>
                     <md-tooltip md-direction="top">Delete</md-tooltip>
                     <md-icon><i class='material-icons' style='color: {{$parent.swatch.color}};'>delete</i></md-icon>
                   </md-button>
@@ -185,12 +185,12 @@
           <md-icon><i class='material-icons'>view_comfy</i></md-icon>
         </md-button>
       </div>
-      <div>
+      <!-- <div>
         <md-button aria-label='Large' class="md-fab md-raised md-mini" ng-click='view = "list"'>
           <md-tooltip md-direction='right'>List</md-tooltip>
           <md-icon><i class='material-icons'>list</i></md-icon>
         </md-button>
-      </div>
+      </div> -->
 
     </md-fab-actions>
   </md-fab-speed-dial>

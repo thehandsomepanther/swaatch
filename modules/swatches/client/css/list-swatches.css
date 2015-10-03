@@ -8,7 +8,7 @@
 }
 
 .view-container {
-  max-height: 85vh;
+  max-height: 85vh !important;
   overflow-y: scroll;
 }
 

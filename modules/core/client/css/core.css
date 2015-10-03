@@ -101,7 +101,7 @@ a:hover .header-profile-image {
 }
 
 .home-swatch > p {
-	margin-left: 4%;
+  text-align: center;
 	color: #616161;
 	font-style:italic;
 }
@@ -115,10 +115,7 @@ a:hover .header-profile-image {
 
 
 .example-swatch-container {
-  display: flex;
-  display: -webkit-box;
-  -webkit-align-content: center;
-  align-content: center;
+
 }
 
 
