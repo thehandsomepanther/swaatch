@@ -83,14 +83,6 @@ a:hover .header-profile-image {
 	height: 100vh;
 }
 
-
-.home-header {
-  width: 50%;
-  padding-right: 5%;
-  padding-left: 10%;
-}
-
-
 .home-header h1 {
   font-size: 6em;
   font-weight: bold;
