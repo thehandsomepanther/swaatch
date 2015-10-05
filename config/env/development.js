@@ -4,7 +4,7 @@ module.exports = {
 	// db: 'mongodb://localhost/swaatch-dev',
 	db: 'mongodb://swaatch:swaatch@ds051843.mongolab.com:51843/heroku_4dpz1tzj',
 	app: {
-		title: 'swaatch - Development Environment'
+		title: 'swaatch'
 	},
 	facebook: {
 		clientID: process.env.FACEBOOK_ID || 'APP_ID',
