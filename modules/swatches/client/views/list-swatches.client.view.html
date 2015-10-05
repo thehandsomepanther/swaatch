@@ -27,13 +27,26 @@
 
     <div class="view-container" flex=50>
 
-      <div class="alert alert-warning text-center" data-ng-hide="has_swatches">
-        No Swatches yet, why don't you <a href="/#!/swatches/create">create one</a>?
+      <div ng-if="!has_swatches">
+        <a href="/#!/swatches/create" class='no-swatch'>
+        <md-content class='md-padding swatch-full-container'>
+          <md-card class='swatch-full'>
+            <div class="swatch-full-color" style='background-color: rgba(221, 44, 0, .5);'>
+              <md-button class='md-raised' class='get-started'>Get started</md-button>
+            </div>
+            <md-card-content class='swatch-full-content'>
+              <h2 class='md-title swatch-full-title'>Make a new swatch</h2>
+              <p class='swatch-full-description'>
+                Learn how to make a new swatch in swaatch.
+              </p>
+            </md-card-content>
+          </md-card>
+        </md-content>
+        </a>
       </div>
-
       <div class="animated bounceInUp">
-        <div data-ng-repeat="swatch in swatches | orderBy: sort | filter: searchText" ng-if='view === "full"' data-ng-show="authentication.user._id == swatch.user._id">
-          <md-content class='md-padding swatch-full-container' ng-if='show === "all" || show == swatch.completed' ng-mouseover='$parent.$parent.$parent.focus = $parent.$parent.swatch'>
+        <div ng-repeat="swatch in swatches | orderBy: sort | filter: searchText" ng-show='view === "full"' ng-if="authentication.user._id == swatch.user._id">
+          <md-content class='md-padding swatch-full-container' ng-show='show === "all" || show == swatch.completed' ng-mouseover='$parent.$parent.$parent.focus = $parent.$parent.swatch' ng-init='$parent.$parent.has_swatches = true;'>
             <md-card class='swatch-full'>
               <div class="swatch-full-color" style='background-color: {{swatch.color}};'>
                 <div class="swatch-full-buttons">
@@ -65,7 +78,7 @@
           </md-content>
         </div>
 
-        <span data-ng-repeat="swatch in swatches | orderBy: sort | filter: searchText" ng-if='view === "grid"' data-ng-show="authentication.user._id == swatch.user._id">
+        <span ng-repeat="swatch in swatches | orderBy: sort | filter: searchText" ng-if='view === "grid"' ng-show="authentication.user._id == swatch.user._id">
           <md-content class='md-padding swatch-grid-container' ng-if='show === "all" || show == swatch.completed' ng-mouseover='$parent.$parent.$parent.focus = $parent.$parent.swatch'>
             <a class='view-link'>
               <!--
@@ -83,7 +96,7 @@
           </md-content>
         </span>
 
-        <div data-ng-repeat="swatch in swatches | orderBy: sort | filter: searchText" ng-if='view === "list"' data-ng-show="authentication.user._id == swatch.user._id">
+        <div ng-repeat="swatch in swatches | orderBy: sort | filter: searchText" ng-if='view === "list"' ng-show="authentication.user._id == swatch.user._id">
           <!-- data-ng-show="authentication.user._id == swatch.user._id" -->
           <md-card ng-if='show === "all" || show == swatch.completed' ng-mouseover='$parent.$parent.$parent.focus = $parent.$parent.swatch' class='swatch-list'>
             <div class="swatch-list-color" style='background-color: {{swatch.color}};'></div>

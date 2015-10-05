@@ -17,7 +17,8 @@ angular.module('swatches')
       $scope.view = 'full';
 
       $scope.focus = null;
-      $scope.has_swatches = true;
+      $scope.has_swatches = false;
+      $scope.count = 0;
 
       // calculates hue from importance (outdated)
       function parseHue(importance) {

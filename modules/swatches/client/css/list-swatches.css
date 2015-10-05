@@ -12,6 +12,14 @@
   overflow-y: scroll;
 }
 
+.no-swatch md-card-content{
+  opacity: .4;
+}
+
+.no-swatch:hover {
+  text-decoration: none;
+}
+
 .focus-list-container {
   width: 100%;
   margin: 0 0 0 0;
