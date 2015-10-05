@@ -2,7 +2,7 @@
 
 module.exports = {
 	// db: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/swaatch',
-	db: 'mongodb://root:tHP;jls21815004285348@ds051843.mongolab.com:51843/heroku_4dpz1tzj',
+	db: 'mongodb://swaatch:swaatch@ds051843.mongolab.com:51843/heroku_4dpz1tzj',
 	facebook: {
 		clientID: process.env.FACEBOOK_ID || 'APP_ID',
 		clientSecret: process.env.FACEBOOK_SECRET || 'APP_SECRET',

@@ -2,7 +2,7 @@
 
 module.exports = {
 	// db: 'mongodb://localhost/swaatch-dev',
-	db: 'mongodb://root:tHP;jls21815004285348@ds051843.mongolab.com:51843/heroku_4dpz1tzj',
+	db: 'mongodb://swaatch:swaatch@ds051843.mongolab.com:51843/heroku_4dpz1tzj',
 	app: {
 		title: 'swaatch - Development Environment'
 	},
