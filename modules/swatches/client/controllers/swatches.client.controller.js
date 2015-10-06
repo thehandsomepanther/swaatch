@@ -40,7 +40,7 @@ angular.module('swatches')
         var r = Math.floor(221 - 20 * offset);
         var g = Math.floor(44 + 6 * offset);
         var b = Math.floor(28 * offset);
-        var a = importance / 90;
+        var a = (importance / 90).toFixed(2);
         return 'rgba(' + r + ', ' + g + ', ' + b + ', ' + a + ')';
       }
 
@@ -50,7 +50,7 @@ angular.module('swatches')
         var r = Math.floor(221 - 20 * offset);
         var g = Math.floor(44 + 6 * offset);
         var b = Math.floor(28 * offset);
-        var a = importance / 90;
+        var a = (importance / 90).toFixed(2);
         return 'rgba(' + r + ', ' + g + ', ' + b + ', ' + a + ')';
         // return 'hsla(' + parseHue(importance) + ', 100%, ' + parseBright(urgency) + '%, 1)';
       }
