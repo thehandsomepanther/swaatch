@@ -1,18 +1,11 @@
 <section data-ng-controller="SwatchesController" data-ng-init="find();">
   <div layout='row'>
     <div flex=20>
+      <h1 class='view-header'>viewing <span>{{show === "all" ? "all" : show? "completed" : "ongoing"}}</span> swatches by <span>{{sort.substr(1)}}</span></h1>
       <div class='nav-list-container'>
         <md-input-container md-no-float class='list-search'>
           <md-icon><i class='material-icons'>search</i></md-icon>
           <input type="text" placeholder="Search" ng-model='searchText'>
-        </md-input-container>
-        <md-input-container>
-          <label>Sort</label>
-          <md-select ng-model="sort">
-            <md-option value="-priority">Priority</md-option>
-            <md-option value="-urgency">Urgency</md-option>
-            <md-option value="-importance">Importance</md-option>
-          </md-select>
         </md-input-container>
         <md-input-container>
           <label>Show</label>
@@ -20,6 +13,14 @@
             <md-option value=0>Ongoing</md-option>
             <md-option value=1>Completed</md-option>
             <md-option value="all">All</md-option>
+          </md-select>
+        </md-input-container>
+        <md-input-container>
+          <label>Sort</label>
+          <md-select ng-model="sort">
+            <md-option value="-priority">Priority</md-option>
+            <md-option value="-urgency">Urgency</md-option>
+            <md-option value="-importance">Importance</md-option>
           </md-select>
         </md-input-container>
       </div>

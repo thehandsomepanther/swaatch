@@ -12,6 +12,16 @@
   overflow-y: scroll;
 }
 
+.view-header {
+  font-weight: bold;
+  letter-spacing: -1px;
+  line-height: .85em;
+}
+
+.view-header span {
+  color: rgb(221, 44, 0);
+}
+
 .no-swatch md-card-content{
   opacity: .4;
 }

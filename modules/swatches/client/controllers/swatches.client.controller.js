@@ -13,6 +13,7 @@ angular.module('swatches')
       $scope.urgency = 50;
 
       $scope.show = 0;
+      $scope.showText = 'ongoing';
       $scope.sort = '-priority';
       $scope.view = 'full';
 
@@ -42,6 +43,16 @@ angular.module('swatches')
         var b = Math.floor(28 * offset);
         var a = (importance / 90).toFixed(2);
         return 'rgba(' + r + ', ' + g + ', ' + b + ', ' + a + ')';
+      }
+
+      $scope.parseShow = function(show) {
+        if (show === 0) {
+          return "ongoing";
+        } else if (show === 1) {
+          return "completed";
+        } else {
+          return show;
+        }
       }
 
       // calculates color from importance and urgency
