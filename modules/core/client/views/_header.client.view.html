@@ -1,4 +1,4 @@
-<div class="container" data-ng-controller="HeaderController">
+<div class="container" data-ng-controller="HeaderController" style="background-color: white">
 	<div class="navbar-header">
 		<button class="navbar-toggle" type="button" data-ng-click="toggleCollapsibleMenu()">
 			<span class="sr-only">Toggle navigation</span>
@@ -15,11 +15,11 @@
 					<span data-ng-bind="item.title"></span>
 					<b class="caret"></b>
 				</a>
-				<ul ng-switch-when="dropdown" class="dropdown-menu">
-					<li data-ng-repeat="subitem in item.items | orderBy: 'position'" data-ng-if="subitem.shouldRender(authentication.user);" data-ui-sref-active="active">
+				<md-list ng-switch-when="dropdown" class="dropdown-menu">
+					<md-list-item data-ng-repeat="subitem in item.items | orderBy: 'position'" data-ng-if="subitem.shouldRender(authentication.user);" data-ui-sref-active="active">
 						<a data-ui-sref="{{subitem.state}}" data-ng-bind="subitem.title"></a>
-					</li>
-				</ul>
+					</md-list-item>
+				</md-list>
 				<a ng-switch-default data-ui-sref="{{item.state}}" data-ng-bind="item.title"></a>
 			</li>
 		</ul>
@@ -38,24 +38,23 @@
 					<img data-ng-src="{{authentication.user.profileImageURL}}" alt="{{authentication.user.displayName}}" class="header-profile-image"/>
 					<span data-ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
 				</a>
-				<ul class="dropdown-menu">
-					<li data-ui-sref-active="active">
+				<md-list class="dropdown-menu" md-style-color="{'background-color': 'white'}">
+					<md-list-item data-ui-sref-active="active">
 						<a data-ui-sref="settings.profile">Edit Profile</a>
-					</li>
-					<li data-ui-sref-active="active">
+					</md-list-item>
+					<md-list-item data-ui-sref-active="active">
 						<a data-ui-sref="settings.picture">Change Profile Picture</a>
-					</li>
-					<li data-ui-sref-active="active" data-ng-show="authentication.user.provider === 'local'">
+					</md-list-item>
+					<md-list-item data-ui-sref-active="active" data-ng-show="authentication.user.provider === 'local'">
 						<a data-ui-sref="settings.password">Change Password</a>
-					</li>
-					<li data-ui-sref-active="active">
+					</md-list-item>
+					<!-- <md-list-item data-ui-sref-active="active">
 						<a data-ui-sref="settings.accounts">Manage Social Accounts</a>
-					</li>
-					<li class="divider"></li>
-					<li>
+					</md-list-item> -->
+					<md-list-item>
 						<a href="/api/auth/signout" target="_self">Signout</a>
-					</li>
-				</ul>
+					</md-list-item>
+				</md-list>
 			</li>
 		</ul>
 	</nav>

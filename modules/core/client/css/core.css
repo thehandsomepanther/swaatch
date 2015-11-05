@@ -7,6 +7,10 @@
   text-decoration: none;
 }
 
+md-toolbar {
+  background-color: white !important;
+}
+
 
 [ng\:cloak],
 [ng-cloak],

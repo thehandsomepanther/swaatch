@@ -1,4 +1,4 @@
-<div class="container" data-ng-controller="HeaderController">
+<div class="container" data-ng-controller="HeaderController" style="background-color: white">
 	<div class="navbar-header">
 		<button class="navbar-toggle" type="button" data-ng-click="toggleCollapsibleMenu()">
 			<span class="sr-only">Toggle navigation</span>
@@ -38,7 +38,7 @@
 					<img data-ng-src="{{authentication.user.profileImageURL}}" alt="{{authentication.user.displayName}}" class="header-profile-image"/>
 					<span data-ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
 				</a>
-				<md-list class="dropdown-menu">
+				<md-list class="dropdown-menu" md-style-color="{'background-color': 'white'}">
 					<md-list-item data-ui-sref-active="active">
 						<a data-ui-sref="settings.profile">Edit Profile</a>
 					</md-list-item>
