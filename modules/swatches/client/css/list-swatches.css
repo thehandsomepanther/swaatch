@@ -109,6 +109,10 @@
   left: 20px;
 }
 
+.list-view-fab button {
+  background-color: rgb(221, 44, 0) !important;
+}
+
 .list-view-fab i {
   color: #ccc;
 }
