@@ -94,22 +94,22 @@ angular.module('chat').controller('ChatController', ['$scope', 'Socket',
     function($scope, Socket) {
     	// Create a messages array
         $scope.messages = [];
-        
+
         // Add an event listener to the 'chatMessage' event
         Socket.on('chatMessage', function(message) {
             $scope.messages.unshift(message);
         });
-        
+
         // Create a controller method for sending messages
         $scope.sendMessage = function() {
         	// Create a new message object
             var message = {
                 text: this.messageText
             };
-            
+
             // Emit a 'chatMessage' message event
             Socket.emit('chatMessage', message);
-            
+
             // Clear the message text
             this.messageText = '';
         };
@@ -120,7 +120,7 @@ angular.module('chat').controller('ChatController', ['$scope', 'Socket',
         });
 
     }
-]); 
+]);
 
 'use strict';
 
@@ -182,7 +182,7 @@ angular.module('core').service('Menus', [
         // Define the menus object
         this.menus = {};
 
-        // A private function for rendering decision 
+        // A private function for rendering decision
         var shouldRender = function(user) {
             if (user) {
                 if (!!~this.roles.indexOf('*')) {
@@ -396,22 +396,22 @@ angular.module('swatches').run(['Menus',
 	function(Menus) {
 		// Add the Swatches dropdown item
 		Menus.addMenuItem('topbar', {
-			title: 'Swatches',
-			state: 'swatches',
+			title: 'my swatches',
+			state: 'swatches.list',
 			type: 'dropdown'
 		});
 
-		// Add the dropdown list item
-		Menus.addSubMenuItem('topbar', 'swatches', {
-			title: 'List Swatches',
-			state: 'swatches.list'
+		Menus.addMenuItem('topbar', {
+			title: 'new swatch',
+			state: 'swatches.create',
+			type: 'dropdown'
 		});
 
-		// Add the dropdown create item
-		Menus.addSubMenuItem('topbar', 'swatches', {
-			title: 'Create Swatch',
-			state: 'swatches.create'
-		});
+		// // Add the dropdown list item
+		// Menus.addSubMenuItem('topbar', 'swatches', {
+		// 	title: 'List Swatches',
+		// 	state: 'swatches.list'
+		// });
 	}
 ]);
 'use strict';
@@ -859,7 +859,7 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 		// If user is not signed in then redirect back home
 		if (!$scope.user) $location.path('/');
 
-		// Check if there are additional accounts 
+		// Check if there are additional accounts
 		$scope.hasConnectedAdditionalSocialAccounts = function(provider) {
 			for (var i in $scope.user.additionalProvidersData) {
 				return true;
@@ -895,7 +895,7 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 			if (isValid){
 				$scope.success = $scope.error = null;
 				var user = new Users($scope.user);
-	
+
 				user.$update(function(response) {
 					$scope.success = true;
 					Authentication.user = response;
