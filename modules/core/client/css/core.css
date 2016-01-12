@@ -70,7 +70,7 @@ a:hover .header-profile-image {
 
 .header .nav, .navbar-brand {
   margin-top: -6px;
-  color: #000 !important;
+  color: #000;
   font-weight: 700;
   font-size: 18px;
   border-top: 8px solid black;
@@ -79,7 +79,6 @@ a:hover .header-profile-image {
 
 .header .nav {
   text-transform: lowercase;
-  color: #616161;
 }
 
 .home-wrapper {

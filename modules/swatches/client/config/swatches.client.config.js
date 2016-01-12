@@ -4,7 +4,7 @@
 angular.module('swatches').run(['Menus',
 	function(Menus) {
 		Menus.addMenuItem('topbar', {
-			title: 'view swatches',
+			title: 'my swatches',
 			state: 'swatches.list'
 		});
 
